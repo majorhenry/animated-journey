@@ -12,22 +12,23 @@ with open('calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
 
-possible_telemarketer = []
-recieving_call = []
-outgoing_text = []
-recieving_text = []
+impossible_telemarketer = set()
+
+possible_telemarketer = set()
+
 for call_data in calls:
-    possible_telemarketer.append(call_data[0])
-    recieving_call.append(call_data[1])
+    impossible_telemarketer.add(call_data[1])
+    possible_telemarketer.add(call_data[0])
 
 for text_data in texts:
-    outgoing_text.append(text_data[0])
-    recieving_text.append(text_data[1])
+    impossible_telemarketer.add(text_data[0])
+    impossible_telemarketer.add(text_data[1])
 
-for marketer in possible_telemarketer:
-    if marketer in recieving_call or marketer in outgoing_text or marketer in recieving_text:
-        possible_telemarketer.remove(marketer)
-result = list(set(sorted(possible_telemarketer)))
+telemarketer = possible_telemarketer.difference(impossible_telemarketer)
+
+
+
+result = list(sorted(telemarketer))
 print(f"These numbers could be telemarketers: ")
 
 print(*result, sep = "\n")

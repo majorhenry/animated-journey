@@ -19,9 +19,14 @@ Print a message:
 "<telephone number> spent the longest time, <total time> seconds, on the phone during 
 September 2016.".
 """
-total_time = 0
+phone_dict ={ }
+
+
 for number_data in calls:
-    if int(number_data[-1]) > int(total_time):
-        total_time = number_data[-1]
-        telephone_number = number_data[0]
+    phone_dict[number_data[0]] = phone_dict.get(number_data[0], 0) + int(number_data[-1])
+    phone_dict[number_data[1]] = phone_dict.get(number_data[1], 0) + int(number_data[-1])
+
+
+
+telephone_number, total_time =  max(zip(phone_dict.values(), phone_dict.keys()))[1], max(zip(phone_dict.values(), phone_dict.keys()))[0]
 print(f"{telephone_number} spent the longest time, {total_time} seconds, on the phone during September 2016.")

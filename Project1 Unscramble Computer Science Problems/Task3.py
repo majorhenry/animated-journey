@@ -52,7 +52,7 @@ for call_data in calls[:]:
       if call_data[1][0] == '(' and call_data[1][1] == '0' :
         list_of_codes.append(call_data[1].split(')')[0]+')')
       if ' ' in call_data[1]:
-        list_of_codes.append(call_data[1].split(' ')[0])
+        list_of_codes.append(call_data[1][0:4])
       if '(' not in call_data[1] and ' '  not in call_data[1] and call_data[1][:3] == '140':
         list_of_codes.append(call_data[1][:3])
 result = sorted( set(list_of_codes))
@@ -64,4 +64,4 @@ for fixed_line in result2:
   
   if fixed_line == '(080)':
     count += 1
-print(f" {'{0:.2g}'.format(count/len(result2))} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
+print(f"{'{0:.2g}'.format(count/len(result2)*100)} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
