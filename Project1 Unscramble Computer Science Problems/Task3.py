@@ -64,4 +64,4 @@ for fixed_line in result2:
   
   if fixed_line == '(080)':
     count += 1
-print(f"{'{0:.2g}'.format(count/len(result2)*100)} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
+print(f"{(count/len(result2)*100):.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
