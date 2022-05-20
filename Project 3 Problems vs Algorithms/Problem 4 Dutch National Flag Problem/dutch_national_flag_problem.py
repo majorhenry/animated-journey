@@ -22,6 +22,9 @@ def swap(arr,i,j):
     arr[i], arr[j] = arr[j], arr[i]
 
 def test_function(test_case):
+    if type(test_case) != list:
+        print("INVALID INPUT")
+        return
     sorted_array = sort_012(test_case)
     print(sorted_array)
     if sorted_array == sorted(test_case):
@@ -34,3 +37,5 @@ test_function([0, 0, 2, 2, 2, 1, 1, 1, 2, 0, 2])
 test_function([2, 1, 2, 0, 0, 2, 1, 0, 1, 0, 0, 2, 2, 2, 1, 2, 0, 0, 0, 2, 1, 0, 2, 0, 0, 1])
 test_function([0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2])
 test_function([0, 0, 2,  1, 1, 1, 2, 2, 2])
+test_function([])       #Edge case
+test_function("Hi mom") #INVALID INPUT

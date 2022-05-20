@@ -75,7 +75,7 @@ for word in wordList:
 print("Pass" if type(MyTrie.find("t")) is TrieNode else "Fail") 
 print("Pass" if MyTrie.find("q") is not False else "Fail") #returns false because d doesn't exist in the Trie
 print(MyTrie.find('ants')) #returns false because 'ants' is not a word in wordList
-
+print(MyTrie.find('')) #Empty string edge case
 
 assert type(MyTrie.find('a')) is TrieNode
 assert MyTrie.find('function').is_word is True

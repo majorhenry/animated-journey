@@ -9,6 +9,8 @@ def sqrt(number):
     Returns:
        int: Floored Square Root
     """
+    if type(number) != int:
+        return "INVALID INPUT, ENTER AN INTEGER!"
     start, end = 0, number + 1
     while start < end:
         mid = start + (end - start)//2
@@ -26,3 +28,5 @@ print ("Pass" if  (0 == sqrt(0)) else "Fail")
 print ("Pass" if  (4 == sqrt(16)) else "Fail")
 print ("Pass" if  (1 == sqrt(1)) else "Fail")
 print ("Pass" if  (5 == sqrt(27)) else "Fail")
+print("Pass" if  ("INVALID INPUT, ENTER AN INTEGER" == sqrt(str(27))) else "Fail")
+print("Pass" if ("INVALID INPUT, ENTER AN INTEGER" == sqrt('hello')) else "Fail")

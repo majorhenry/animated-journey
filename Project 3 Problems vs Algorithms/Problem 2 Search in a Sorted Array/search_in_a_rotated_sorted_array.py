@@ -1,3 +1,6 @@
+from cgi import test
+
+
 def rotated_array_search(input_list, number):
     """
     Find the index by searching in a rotated sorted array
@@ -7,6 +10,9 @@ def rotated_array_search(input_list, number):
     Returns:
        int: Index or -1
     """
+    if number is None or len(input_list) == 0:
+        return None
+
     start,end = 0, len(input_list) - 1
 
     while start <= end:
@@ -38,6 +44,10 @@ def linear_search(input_list, number):
     return -1
 
 def test_function(test_case):
+    if len(test_case) < 1 or len(test_case[0]) < 1 or len(test_case) < 2:
+        print("INVALID INPUT")
+        return
+
     input_list = test_case[0]
     number = test_case[1]
     if linear_search(input_list, number) == rotated_array_search(input_list, number):
@@ -52,3 +62,6 @@ test_function([[6, 7, 8, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 10])
 test_function([[4,5,6,7,0,1,2], 0]) #, Output: 4
 test_function([[1,3,5,7,9,11.13,16],11]) # Testing a sorted array
+test_function([[], 10]) #INVALID INPUT
+test_function([[]])     #INVALID INPUT
+test_function([[4]])    #INVALID INPUT

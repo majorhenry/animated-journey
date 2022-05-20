@@ -54,16 +54,16 @@ router = Router("root handler", "not found handler")  # remove the 'not found ha
 router.add_handler("/home/about", "about handler")  # add a route
 
 # some lookups with the expected output
-print(router.lookup("/")) # should print 'root handler'
+print(router.lookup("/")) # should print 'root handler', #Edge case
 print(router.lookup("/home")) # should print 'not found handler'
 print(router.lookup("/home/about")) # should print 'about handler'
 print(router.lookup("/home/about/")) # should print 'about handler'
 print(router.lookup("/home/about/me")) # should print 'not found handler'
 
-assert router.lookup("/") == "root handler"
+assert router.lookup("/") == "root handler" #Edge case
 assert router.lookup("/home") == "not found handler"
 assert router.lookup("/home/about") == "about handler"
 assert router.lookup("/home/about/") == "about handler"
 assert router.lookup("/home/about/me") == "not found handler"
-assert router.lookup("") == "root handler"
+assert router.lookup("") == "root handler" #Edge case
 assert router.lookup("/home/about/us") == "not found handler"
