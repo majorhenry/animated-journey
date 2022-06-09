@@ -6,10 +6,10 @@ from math import sqrt
 
 def shortest_path(M,start,goal):
     # The dictionary of the intersections of M
-    nodes=M.intersections
+    nodes=M.intersections       # dictionary  {node index : [x,y] location coordinates}
     
     # The list that shows the connectivity of M
-    roads=M.roads
+    roads=M.roads           # adjacency list of list [node_index -> [list of neighbours]
     
     # The set of nodes already explored
     visited=set()
